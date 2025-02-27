@@ -1,2 +1,14 @@
 <p>home works!</p>
-<p>{{service.getFlights()}}</p>
+<div *ngIf="error">
+    <h3>oops nastala je greska</h3>
+    <p style="color: red;">{{error}}</p>
+</div>
+
+<div *ngIf="flights">
+    <p *ngFor="let flights of flights">{{flights.id}} {{flights.destination}}  {{flights.flightKey}}</p>
+    <!-- <pre>{{flights | json}}</pre> -->
+</div>
+
+<div *ngIf="!flights && !error">
+    <p>podaci se ucitavaju</p>
+</div>
